@@ -53,6 +53,7 @@ _skip_if_exists:
   - pyproject.toml
   - mkdocs.yml
   - docs/index.md
+  - .gitignore
 
 _tasks:
   - "git init"
