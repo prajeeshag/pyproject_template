@@ -1,0 +1,22 @@
+[tox]
+requires =
+    tox>=4
+env_list = py{312}
+
+[testenv]
+description = run unit tests
+runner = uv-venv-lock-runner
+allowlist_externals = pytest
+extras =
+    test
+commands =
+    pytest --cov={{module_name}} --cov-report=xml
+
+[testenv:dev]
+description = create development environment
+runner = uv-venv-lock-runner
+allowlist_externals = ls
+extras =
+    dev
+    test
+commands =

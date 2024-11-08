@@ -1,0 +1,66 @@
+project_name:
+  type: str
+  help: What is your project name?
+  validator: >-
+    {% if not (project_name | regex_search('^[a-z][a-z0-9\-]+$')) %}
+    project_name must start with a letter, followed one or more letters, digits or dashes all lowercase.
+    {% endif %}
+
+project_slug:
+  type: str
+  default: "{{ project_name | lower | replace(' ', '_') }}"
+  help: "Automatically generated slug from project name"
+  when: false
+
+module_name:
+  type: str
+  help: What is your python module name?
+  default: "{{project_slug}}"
+
+ghname:
+  type: str
+  help: What is your github username?
+  default: "prajeeshag"
+
+author_name:
+  type: str
+  help: What is your name?
+  default: "Prajeesh Ag"
+
+author_email:
+  type: str
+  help: What is your email?
+  default: "prajeeshag@gmail.com"
+
+requires_python:
+  type: str
+  help: What is your python version?
+  default: ">=3.12"
+
+docs_site_name:
+  type: str
+  help: What is your docs site name?
+  default: "{{project_name | capitalize}}"
+
+year:
+  type: str
+
+_exclude:
+  - ".git"
+  - copier.yml
+
+_skip_if_exists:
+  - pyproject.toml
+  - mkdocs.yml
+  - docs/index.md
+
+_tasks:
+  - "git init"
+  - "mkdir -p tests"
+  - "uv self update"
+  - "uvx pre-commit install"
+  - "uvx pre-commit autoupdate"
+  - "uv tool install tox --with tox-uv"
+  - "uv tool upgrade tox"
+  - "uv sync"
+  - "uvx tox -e dev"
