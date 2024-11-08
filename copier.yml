@@ -22,6 +22,11 @@ ghname:
   help: What is your github username?
   default: "prajeeshag"
 
+ghrepo:
+  type: str
+  default: "https://github.com/{{ghname}}/{{project_slug}}"
+  when: false
+
 author_name:
   type: str
   help: What is your name?

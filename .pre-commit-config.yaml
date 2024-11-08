@@ -31,8 +31,8 @@ repos:
     rev: v3.30.0
     hooks:
       - id: commitizen
-        additional_dependencies:
-          - cz_conventional_gitmoji
+        additional_dependencies: [cz-conventional-gitmoji]
+
   - repo: https://github.com/prajeeshag/readme_from_mkdocs
     rev: main
     hooks:
