@@ -15,8 +15,16 @@ commands =
 [testenv:dev]
 description = create development environment
 runner = uv-venv-lock-runner
-allowlist_externals = ls
 extras =
     dev
     test
 commands =
+
+
+[testenv:docs]
+runner = uv-venv-lock-runner
+extras =
+    docs
+allowlist_externals = mkdocs
+commands =
+    mkdocs serve
