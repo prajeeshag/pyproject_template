@@ -60,8 +60,6 @@ _exclude:
   - copier.yml
   - .pre-commit-config_local.yaml
 
-_skip_if_exists:
-
 _tasks:
   - "git init"
   - "mkdir -p tests {{module_name}}"
