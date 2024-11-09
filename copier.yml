@@ -49,6 +49,11 @@ docs_site_name:
 
 year:
   type: str
+  default: "2024"
+  validator: >-
+    {% if not (year | regex_search(r"^\d{4}$") %}
+    year must be a 4 digit number 
+    {% endif %}
 
 _exclude:
   - ".git"
