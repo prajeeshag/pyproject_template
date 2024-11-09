@@ -61,16 +61,10 @@ _exclude:
   - .pre-commit-config_local.yaml
 
 _skip_if_exists:
-  - pyproject.toml
-  - mkdocs.yml
-  - docs/index.md
-  - .gitignore
-  - LICENSE
-  - "{{module_name}}/__init__.py"
 
 _tasks:
   - "git init"
-  - "mkdir -p tests"
+  - "mkdir -p tests {{module_name}}"
   - "uv self update"
   - "uvx pre-commit install"
   - "uvx pre-commit autoupdate"
