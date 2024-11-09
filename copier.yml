@@ -52,12 +52,13 @@ year:
   default: 2024
   validator: >-
     {% if not (year | regex_search('^\d{4}$')) %}
-    year must be a 4 digit number 
+    year must be a 4 digit number
     {% endif %}
 
 _exclude:
   - ".git"
   - copier.yml
+  - .pre-commit-config_local.yaml
 
 _skip_if_exists:
   - pyproject.toml
