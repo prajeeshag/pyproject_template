@@ -51,7 +51,7 @@ year:
   type: str
   default: 2024
   validator: >-
-    {% if not (year | regex_search(r'^\d{4}$')) %}
+    {% if not (year | regex_search('^\d{4}$')) %}
     year must be a 4 digit number 
     {% endif %}
 
