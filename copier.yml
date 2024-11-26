@@ -69,4 +69,3 @@ _tasks:
   - "uv tool install tox --with tox-uv"
   - "uv tool upgrade tox"
   - "uv sync"
-  - "uvx tox -e dev"
