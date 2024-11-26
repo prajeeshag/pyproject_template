@@ -21,13 +21,13 @@ repository = "https://github.com/prajeeshag/{{project_slug}}"
 documentation = "https://{{ghname}}.github.io/{{project_slug}}"
 
 [tool.pdm.build]
-excludes = ["tests", "examples"]
+excludes = ["tests", "examples", "docs"]
 
 [tool.pdm.version]
 source = "scm"
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["tests", "examples"]
 
 [tool.commitizen]
 name = "cz_gitmoji"
@@ -49,3 +49,6 @@ branch = true
 [tool.coverage.report]
 show_missing = true
 skip_covered = true
+
+[tool.mypy]
+strict = true
