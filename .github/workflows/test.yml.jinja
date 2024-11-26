@@ -84,4 +84,4 @@ jobs:
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.12'
         uses: codecov/codecov-action@v4
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          token: {% raw %} ${{ secrets.CODECOV_TOKEN }} {% endraw %}
