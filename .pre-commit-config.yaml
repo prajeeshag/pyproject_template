@@ -45,7 +45,7 @@ repos:
         additional_dependencies: [cz-conventional-gitmoji]
 
   - repo: https://github.com/prajeeshag/readme_from_mkdocs
-    rev: main
+    rev: v0.0.3
     hooks:
       - id: readme-from-mkdocs
 
