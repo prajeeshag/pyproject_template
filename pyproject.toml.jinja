@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools >= 61.0", "wheel", "setuptools_scm"]
-build-backend = "setuptools.build_meta"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
 [project]
 name = "{{project_slug}}"
@@ -20,29 +20,23 @@ homepage = "https://{{ghname}}.github.io/{{project_slug}}"
 repository = "https://github.com/prajeeshag/{{project_slug}}"
 documentation = "https://{{ghname}}.github.io/{{project_slug}}"
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["{{module_name}}"]
+[tool.pdm.build]
+excludes = ["tests", "examples"]
+
+[tool.pdm.version]
+source = "scm"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-
-[tool.setuptools_scm]
-version_scheme = "guess-next-dev"
-local_scheme = "node-and-timestamp"
-
-[tool.setuptools.package-data]
-"{{module_name}}" = ["static/*"]
 
 [tool.commitizen]
 name = "cz_gitmoji"
 
 [tool.uv]
-default-groups = ["dev", "docs", "lint"]
+default-groups = ["dev", "docs"]
 
 [dependency-groups]
-lint = ["ruff"]
-dev = ["pytest","pytest_mock", "pytest-sugar", "pytest-cov"]
+dev = ["pytest","pytest_mock", "pytest-sugar", "pytest-cov", "ruff", "mypy"]
 docs = [
     "mkdocs",
     "mkdocs-material",

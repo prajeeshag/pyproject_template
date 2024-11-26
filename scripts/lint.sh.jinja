@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -ex
+
+uv run mypy {{module_name}}
+uv run ruff check {{module_name}} tests examples
+uv run ruff format --check {{module_name}} tests examples
